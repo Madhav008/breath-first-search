@@ -1,0 +1,2 @@
+# breath-first-search
+This web app collects all the daily questions from all the major coding platforms like Geekforgeeks,Leetcode and Codestudio etc and provide in the one platform so,that we don't need to open any other websites you can compile them run them against the test cases that are provied by same platforms you can also submit your code that submission also reflect on the respective website;
