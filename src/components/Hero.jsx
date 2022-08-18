@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import LoginModal from './Modal'
-
-const Hero = ({ show }) => {
+import { useSelector } from 'react-redux/es/exports'
+const Hero = () => {
+    const show = useSelector((state)=>state.loginModal);
+    
     return (
         <>
             <div className="h-max/2 max-w-[1200px] mx-auto my-8 flex md:flex-row items-center">
@@ -37,9 +39,11 @@ const Hero = ({ show }) => {
                 <img className='w-[500px] hidden md:flex  object-cover' src="/left.png" alt="background image" />
 
             </div>
-            {/* {show}<LoginModal/> */}
+
         </>
     )
+
+    
 }
 
 export default Hero
