@@ -55,11 +55,11 @@ const Hero = () => {
                     <div className='my-2'>
                         <div className='flex items-center'>
                             <form className="flex" onSubmit={handleSubmit}>
-                                <div className='hidden bg-secondary md:flex lg:flex items-center px-2 lg:w-[300px] rounded-xl'>
+                                <div className=' bg-secondary md:flex lg:flex items-center px-2 lg:w-[300px] rounded-xl'>
                                     <input name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className='h-max bg-transparent px-2 py-[5px] focus:outline-none' type="text" placeholder='Enter the email' />
                                     {errors.email && touched.email && <p className=" peer-invalid:visible text-red-700 font-light">{errors.email}</p>}
                                 </div>
-                                <button disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
+                                <button disabled={isSubmitting} type="submit" className=' md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
                             </form>
                         </div>
                         <p className='text-dimWhite my-2'>It's Free and always will be</p>
