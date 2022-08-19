@@ -12,7 +12,7 @@ const Home = () => {
            <Navbar />
             <Hero />
             <CompaySection/>
-            {/* <LoginModal/> */}
+            <LoginModal/>
             <SignupModal/>
         </div>
     )

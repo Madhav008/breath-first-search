@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { AiOutlineCodepenCircle, AiOutlineGlobal, AiOutlineCrown } from 'react-icons/ai'
 import { show } from '../store/loginModalSlice'
+import { show as signupModal } from '../store/signupModalSlice'
+
 import { setEmail } from '../store/emailSlice'
 import { useFormik } from 'formik';
 
@@ -11,6 +13,10 @@ const Navbar = () => {
 
     const handleLoginModal = (() => {
         dispatch(show())
+    })
+
+    const handleSignUpModal = (() => {
+        dispatch(signupModal())
     })
 
     const onSubmit = async (values, actions) => {
@@ -60,7 +66,7 @@ const Navbar = () => {
                         <input name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className='h-max bg-transparent px-2 py-[5px] focus:outline-none' type="text" placeholder='Enter the email' />
                         {errors.email && touched.email && <p className=" peer-invalid:visible text-red-700 font-light">{errors.email}</p>}
                     </div>
-                    <button disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
+                    <button onClick={()=>handleSignUpModal()} disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
                 </form>
 
             </div>

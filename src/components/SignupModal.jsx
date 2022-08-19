@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { show } from '../store/loginModalSlice'
+import { show } from '../store/signupModalSlice'
 import { useFormik } from 'formik';
 import { signupSchema } from "./schemas/schema";
 
 const SignupModal = () => {
-    const item = useSelector((state) => state.loginModal)
+    const item = useSelector((state) => state.signUpModal)
     const email = useSelector((state) => state.email)
     const dispatch = useDispatch();
     const handleModal = () => {

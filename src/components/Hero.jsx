@@ -1,19 +1,16 @@
 import React from 'react'
 import { setEmail } from '../store/emailSlice'
 import { useDispatch } from 'react-redux'
-import { show } from '../store/loginModalSlice'
+import { show } from '../store/signupModalSlice'
 import { useFormik } from 'formik';
 
 const Hero = () => {
     const dispatch = useDispatch()
 
 
-    const handleLoginModal = (() => {
-        dispatch(show())
-    })
-
     const onSubmit = async (values, actions) => {
         dispatch(setEmail(values.email));
+        dispatch(show())
         console.log(values);
         console.log(actions);
         await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -62,7 +59,7 @@ const Hero = () => {
                                     <input name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className='h-max bg-transparent px-2 py-[5px] focus:outline-none' type="text" placeholder='Enter the email' />
                                     {errors.email && touched.email && <p className=" peer-invalid:visible text-red-700 font-light">{errors.email}</p>}
                                 </div>
-                                <button onClick={()=>handleLoginModal()} disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
+                                <button disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
                             </form>
                         </div>
                         <p className='text-dimWhite my-2'>It's Free and always will be</p>
