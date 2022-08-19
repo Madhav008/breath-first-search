@@ -3,6 +3,7 @@ import CompaySection from '../../components/CompaySection'
 import Hero from '../../components/Hero'
 import LoginModal from '../../components/Modal'
 import Navbar from '../../components/Navbar'
+import SignupModal from '../../components/SignupModal'
 
 const Home = () => {
 
@@ -11,8 +12,8 @@ const Home = () => {
            <Navbar />
             <Hero />
             <CompaySection/>
-            <LoginModal/>
-
+            {/* <LoginModal/> */}
+            <SignupModal/>
         </div>
     )
 }

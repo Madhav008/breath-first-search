@@ -7,7 +7,6 @@ const loginModalSlice = createSlice({
         show(state, action) {
             return !state
         },
-
     },
 })
 
