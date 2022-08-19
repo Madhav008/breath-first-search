@@ -10,7 +10,6 @@ const Hero = () => {
 
     const handleLoginModal = (() => {
         dispatch(show())
-
     })
 
     const onSubmit = async (values, actions) => {
@@ -63,7 +62,7 @@ const Hero = () => {
                                     <input name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className='h-max bg-transparent px-2 py-[5px] focus:outline-none' type="text" placeholder='Enter the email' />
                                     {errors.email && touched.email && <p className=" peer-invalid:visible text-red-700 font-light">{errors.email}</p>}
                                 </div>
-                                <button disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
+                                <button onClick={()=>handleLoginModal()} disabled={isSubmitting} type="submit" className='hidden md:flex lg:flex bg-indigo-600 ml-2'>Get Started</button>
                             </form>
                         </div>
                         <p className='text-dimWhite my-2'>It's Free and always will be</p>
