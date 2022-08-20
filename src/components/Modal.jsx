@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { show } from '../store/loginModalSlice'
 import { useFormik } from 'formik';
 import { basicSchema } from "./schemas/schema";
+import { setAuth } from '../store/authSlice';
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = () => {
 
@@ -12,11 +14,23 @@ const LoginModal = () => {
         dispatch(show());
     }
 
+    let navigate = useNavigate();
+
     const onSubmit = async (values, actions) => {
-        console.log(values);
-        console.log(actions);
+       
+        //User Came From the Api
+        const user = {
+            fullname:values.name,
+            username:values.username,
+            email:values.email,
+        }
+        
+        dispatch(setAuth(user))
+
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
+        
+        navigate("/dashboard", { replace: true });
     };
     const {
         values,
