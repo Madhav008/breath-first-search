@@ -1,5 +1,5 @@
 import React from 'react'
-import { setEmail } from '../store/emailSlice'
+import { setAuth } from '../store/authSlice';
 import { useDispatch } from 'react-redux'
 import { show } from '../store/signupModalSlice'
 import { useFormik } from 'formik';
@@ -9,7 +9,11 @@ const Hero = () => {
 
 
     const onSubmit = async (values, actions) => {
-        dispatch(setEmail(values.email));
+        const user = {
+            email:values.email
+        }
+        dispatch(setAuth(user))
+
         dispatch(show())
         console.log(values);
         console.log(actions);

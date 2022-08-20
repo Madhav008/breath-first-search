@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux'
 import { AiOutlineCodepenCircle, AiOutlineGlobal, AiOutlineCrown } from 'react-icons/ai'
 import { show } from '../store/loginModalSlice'
 import { show as signupModal } from '../store/signupModalSlice'
-
-import { setEmail } from '../store/emailSlice'
 import { useFormik } from 'formik';
+import { setAuth } from '../store/authSlice'
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -20,9 +19,12 @@ const Navbar = () => {
     })
 
     const onSubmit = async (values, actions) => {
-        dispatch(setEmail(values.email));
-        console.log(values);
-        console.log(actions);
+        // dispatch(setEmail(values.email));
+        const user = {
+            email:values.email
+        }
+        dispatch(setAuth(user))
+        
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
     }

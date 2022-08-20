@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const VerifyEmail = () => {
+const VerifyEmail = ({onNext}) => {
     const email = useSelector((state) => state.email);
 
     return (
@@ -19,7 +19,7 @@ const VerifyEmail = () => {
                 <div className='flex bg-secondary h-full  rounded-xl w-max'>
                     <span className='m-2 w-max mr-10'>{email}</span>
                 </div>
-                <button className='md:flex lg:flex bg-indigo-600 ml-2'>Resend</button>
+                <button  className='md:flex lg:flex bg-indigo-600 ml-2'>Resend</button>
 
             </div>
         </div>)
