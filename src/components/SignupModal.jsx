@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { show } from '../store/signupModalSlice'
 import { useFormik } from 'formik';
 import { signupSchema } from "./schemas/schema";
+import { setAuth } from '../store/authSlice';
+import { useNavigate } from "react-router-dom";
 
 const SignupModal = () => {
     const item = useSelector((state) => state.signUpModal)
@@ -12,12 +14,23 @@ const SignupModal = () => {
         dispatch(show());
     }
 
+    let navigate = useNavigate();
 
     const onSubmit = async (values, actions) => {
-        console.log(values);
-        console.log(actions);
+  
+        const user = {
+            fullname:values.name,
+            username:values.username,
+            email:values.email,
+        }
+        
+        dispatch(setAuth(user))
+
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
+        
+        navigate("/register", { replace: true });
+
     };
     const {
         values,
@@ -59,20 +72,20 @@ const SignupModal = () => {
                                 <div>
                                     <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Full Name</label>
                                     <input value={values.name} onChange={handleChange} onBlur={handleBlur} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Jane Doe" required />
-                                    {errors.name && touched.name && <p className="error">{errors.name}</p>}
+                                    {errors.name && touched.name && <p className=" peer-invalid:visible text-red-700 font-light">{errors.name}</p>}
 
                                 </div>
                                 <div>
                                     <label for="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
                                     <input value={values.username} onChange={handleChange} onBlur={handleBlur} type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="janedoe" required />
-                                    {errors.username && touched.username && <p className="error">{errors.username}</p>}
+                                    {errors.username && touched.username && <p className=" peer-invalid:visible text-red-700 font-light">{errors.username}</p>}
 
                                 </div>
 
                                 <div>
                                     <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
                                     <input value={values.password} onChange={handleChange} onBlur={handleBlur} type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-                                    {errors.password && touched.password && <p className="error">{errors.password}</p>}
+                                    {errors.password && touched.password && <p className=" peer-invalid:visible text-red-700 font-light">{errors.password}</p>}
                                 </div>
                                 <div className="flex justify-between">
                                     <div className="flex items-start">
