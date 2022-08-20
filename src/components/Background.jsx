@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Background = () => {
+const Background = ({onNext}) => {
     const [image, setImage] = useState('/profile.png')
     const caputreImage = (e) => {
         const file = e.target.files[0];
@@ -48,7 +48,7 @@ const Background = () => {
                 </select>
             </div>
             <div className='flex flex-col items-center'>
-                <button className='md:flex lg:flex bg-indigo-600 ml-2'>Next</button>
+                <button onClick={onNext} className='md:flex lg:flex bg-indigo-600 ml-2'>Next</button>
 
             </div>
         </div>

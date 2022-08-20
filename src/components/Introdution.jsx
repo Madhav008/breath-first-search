@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Introdution = () => {
+const Introdution = ({onNext}) => {
   return (
     <div className='flex flex-col justify-between items-center h-screen max-h-96 max-w-md m-auto mt-[200px] '>
       <div className='flex flex-col items-center'>
@@ -15,7 +15,7 @@ const Introdution = () => {
         <p>We just need a little bit more info to help you get started.</p>
       </div>
       <div className='flex flex-col items-center'>
-        <button className='md:flex lg:flex bg-indigo-600 ml-2'>Next</button>
+        <button onClick={onNext} className='md:flex lg:flex bg-indigo-600 ml-2'>Next</button>
 
       </div>
     </div>
